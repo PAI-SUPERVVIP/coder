@@ -1,5 +1,8 @@
-FROM ghcr.io/coder/coder:latest
+FROM codercom/code-server:latest
 
-EXPOSE 3000
+# ตั้งรหัสผ่าน
+ENV PASSWORD=123456
 
-CMD ["coder", "server", "--address", "0.0.0.0:3000"]
+EXPOSE 8080
+
+CMD ["code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "password"]
